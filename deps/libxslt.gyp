@@ -96,6 +96,15 @@
         'libraries': [
           '<@(xmljs_libraries)'
         ]
+      },
+      'direct_dependent_settings': {
+        'defines': ['LIBXSLT_STATIC'],
+        'include_dirs': [
+          'libxslt/',
+          # platform and arch-specific headers
+          'libxslt.config/<(OS)/<(target_arch)',
+          '<@(xmljs_include_dirs)'
+        ],
       }
     }
   ]
